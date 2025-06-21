@@ -1,0 +1,26 @@
+# Template file for 'maomaowm'
+pkgname=maomaowm
+version=0.5.9
+revision=1
+build_style=meson
+hostmakedepends="pkg-config meson ninja"
+makedepends="wayland-devel libxkbcommon-devel cairo-devel pango-devel wlroots0.19-devel"
+short_desc="Minimal Wayland window manager based on wlroots"
+maintainer="Your Name <you@example.com>"
+license="MIT"
+homepage="https://github.com/DreamMaoMao/maomaowm"
+distfiles="https://github.com/DreamMaoMao/maomaowm/archive/refs/tags/${version}.tar.gz"
+checksum=830089426c42a8faa11fbda7df6552e156384fe168f1ef15dc60bf158359b34c
+
+# pastikan build pakai wlroots 0.19
+pre_configure() {
+    export PKG_CONFIG_PATH="/usr/lib/pkgconfig"
+}
+
+post_extract() {
+    mv "maomaowm-${version}" "${pkgname}-${version}"
+}
+
+do_install() {
+    DESTDIR=${DESTDIR} ninja -C build install
+}
