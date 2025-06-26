@@ -1,0 +1,25 @@
+# Template file for 'maomaowm'
+pkgname=maomaowm
+version=0.6.0
+revision=1
+build_style=meson
+hostmakedepends="pkg-config meson ninja git"
+makedepends="wayland-devel libxkbcommon-devel cairo-devel pango-devel wlroots0.19-devel scenefx-devel"
+short_desc="Minimal Wayland window manager based on wlroots"
+maintainer="solocco <imron.turner@gmail.com>"
+license="MIT"
+homepage="https://github.com/DreamMaoMao/maomaowm"
+# Mengambil langsung dari GitHub repo
+distfiles="git+https://github.com/DreamMaoMao/maomaowm.git"
+# Biarkan checksum kosong saat ambil dari git
+checksum=SKIP
+
+# Jika ingin checkout tag tertentu (misal: v0.6.0)
+# bisa pakai variable ini:
+# git_tag="v0.6.0"
+
+# Opsional: override do_install kalau install-nya manual
+# Tapi meson biasanya sudah menangani ini dengan benar
+# do_install() {
+#     DESTDIR=${DESTDIR} ninja -C build install
+# }
