@@ -1,0 +1,26 @@
+# Template: zig-bin
+# Prebuilt Zig 0.14.1 binary, replaces system zig
+
+pkgname=zig-bin
+version=0.14.1
+revision=1
+archs="x86_64"
+wrksrc="zig-x86_64-linux-${version}"
+hostmakedepends="unzip"
+skiprdeps=yes
+
+short_desc="Zig programming language (binary build, overrides zig)"
+maintainer="Your Name <you@example.com>"
+license="MIT"
+homepage="https://ziglang.org"
+distfiles="https://ziglang.org/download/${version}/zig-x86_64-linux-${version}.tar.xz"
+checksum=24aeeec8af16c381934a6cd7d95c807a8cb2cf7df9fa40d359aa884195c4716c
+
+provides="zig-${version}_${revision}"
+conflicts="zig>=0"
+replaces="zig>=0"
+
+do_install() {
+    vbin zig
+    vlicense LICENSE
+}
