@@ -1,0 +1,30 @@
+# Template file for 'telegram-desktop-bin'
+pkgname=telegram-desktop-bin
+version=5.16.1
+revision=1
+archs="x86_64"
+wrksrc="Telegram"
+short_desc="Official Telegram Desktop client (binary release)"
+maintainer="cid <you@example.com>"
+license="GPL-3.0-or-later"
+homepage="https://desktop.telegram.org/"
+distfiles="https://updates.tdesktop.com/tlinux/tsetup.${version}.tar.xz"
+checksum=52a5d67f58c741c08f35e7987a804aaedfa48f59586b82205afd651aa1c1da11
+depends="glib hicolor-icon-theme dbus"
+
+do_install() {
+    # Install binary
+    vbin Telegram telegram-desktop
+
+    # Install .desktop entry
+    vinstall ${FILESDIR}/telegram-desktop-bin.desktop 644 usr/share/applications telegramdesktop.desktop
+
+    # Legacy fallback icon
+    vinstall ${FILESDIR}/icon256.png 644 usr/share/pixmaps telegram.png
+
+    # Install icons to freedesktop-compliant path
+    for size in 16 32 48 64 128 256 512; do
+        install -Dm644 ${FILESDIR}/icon${size}.png \
+            ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps/telegram.png
+    done
+}
