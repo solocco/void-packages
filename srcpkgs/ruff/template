@@ -1,6 +1,6 @@
 # Template file for 'ruff'
 pkgname=ruff
-version=0.12.10
+version=0.14.10
 revision=1
 build_style=python3-pep517
 build_helper="rust qemu"
@@ -12,7 +12,7 @@ license="MIT"
 homepage="https://docs.astral.sh/ruff/"
 changelog="https://raw.githubusercontent.com/astral-sh/ruff/main/CHANGELOG.md"
 distfiles="https://github.com/astral-sh/ruff/archive/refs/tags/${version}.tar.gz"
-checksum=ecda9ff0ea8ef46cf858a9a830fe78f0d4d8e0ea8c6bc6fad6a8c1eb7f2543cd
+checksum=9294a2ff12994e710aa01fe37d22159b4d6d45ed309af7a9d10e71ca7313e0b8
 
 post_install() {
 	vlicense LICENSE

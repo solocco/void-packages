@@ -1,6 +1,6 @@
 # Template file for 'lf'
 pkgname=lf
-version=r36
+version=r40
 revision=1
 build_style=go
 go_import_path="github.com/gokcehan/${pkgname}"
@@ -11,7 +11,7 @@ license="MIT"
 homepage="https://github.com/gokcehan/lf"
 changelog="https://raw.githubusercontent.com/gokcehan/lf/master/CHANGELOG.md"
 distfiles="https://github.com/gokcehan/lf/archive/${version}.tar.gz"
-checksum=478be3cfae12322273985f443496a511b444ebbd5d5bbec05f7eddaa9b098968
+checksum=43a78f66728dbbbd6848a074dd3d70e8ce7ef22e428de81a89bf2da174226a26
 
 post_install() {
 	vlicense LICENSE
